@@ -2,6 +2,7 @@
 using Infra.Data.Context;
 using Infra.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Radzen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace Infra.Data.Repositories
         {
             _DbSet = appDbContext.Set<Pessoa>(); ;
             _AppDbContext = appDbContext;
+        }
+
+        public override async Task<Pessoa> GetByIdAsync(int id)
+        {
+            var result = from obj in _DbSet select obj;
+
+            return result.FirstOrDefault(x => x.Pessoa_ID == id);
         }
     }
 }

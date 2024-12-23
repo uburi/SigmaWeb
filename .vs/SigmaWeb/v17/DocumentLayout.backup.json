@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCDF6987-3BAA-49C5-9B84-57A9FDCB86A8}|docker-compose.dcproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CCDF6987-3BAA-49C5-9B84-57A9FDCB86A8}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCDF6987-3BAA-49C5-9B84-57A9FDCB86A8}|docker-compose.dcproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CCDF6987-3BAA-49C5-9B84-57A9FDCB86A8}|docker-compose.dcproj|solutionrelative:docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3320431A-4077-4745-9240-D89F5F5FBE94}|Domain\\Domain.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\domain\\entities\\pessoa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3320431A-4077-4745-9240-D89F5F5FBE94}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\pessoa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94D2923-3CCB-4FED-A1AB-A306DD18A1C4}|Infra\\Infra.Data.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\infra\\repositories\\pessoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94D2923-3CCB-4FED-A1AB-A306DD18A1C4}|Infra\\Infra.Data.csproj|solutionrelative:infra\\repositories\\pessoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 350,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +51,84 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-12-23T23:20:42.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\docker-compose.dcproj",
+              "RelativeDocumentMoniker": "docker-compose.dcproj",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\docker-compose.dcproj",
+              "RelativeToolTip": "docker-compose.dcproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-23T23:20:40.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SigmaWeb\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SigmaWeb\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-23T23:19:40.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Program.cs",
+              "RelativeDocumentMoniker": "SigmaWeb\\Program.cs",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Program.cs",
+              "RelativeToolTip": "SigmaWeb\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:19:08.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Pessoa.cs",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Domain\\Entities\\Pessoa.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Pessoa.cs",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Domain\\Entities\\Pessoa.cs",
+              "RelativeToolTip": "Domain\\Entities\\Pessoa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:18:56.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PessoaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Infra\\Repositories\\PessoaRepository.cs",
+              "RelativeDocumentMoniker": "Infra\\Repositories\\PessoaRepository.cs",
+              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Infra\\Repositories\\PessoaRepository.cs",
+              "RelativeToolTip": "Infra\\Repositories\\PessoaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:18:43.147Z",
+              "EditorCaption": ""
             }
           ]
         }

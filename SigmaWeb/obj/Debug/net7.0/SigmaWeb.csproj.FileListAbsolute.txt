@@ -183,3 +183,4 @@ C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SigmaWeb\obj\Debug\net7.0\refint
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SigmaWeb\obj\Debug\net7.0\SigmaWeb.pdb
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SigmaWeb\obj\Debug\net7.0\SigmaWeb.genruntimeconfig.cache
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SigmaWeb\obj\Debug\net7.0\ref\SigmaWeb.dll
+C:\Users\Geovane\Documents\GitHub\SigmaWeb\SigmaWeb\obj\Debug\net7.0\SigmaWeb.sourcelink.json

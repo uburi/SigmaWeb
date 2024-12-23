@@ -14,15 +14,15 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages
     volumes:
-      - C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SigmaWeb:/app:rw
-      - C:\Users\GeovaneRoque\Documents\Github\SigmaWeb:/src:rw
-      - C:\Users\GeovaneRoque\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\GeovaneRoque\.nuget\packages:/.nuget/packages:ro
+      - C:\Users\Geovane\Documents\GitHub\SigmaWeb\SigmaWeb:/app:rw
+      - C:\Users\Geovane\Documents\GitHub\SigmaWeb:/src:rw
+      - C:\Users\Geovane\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\Geovane\.nuget\packages:/.nuget/packages:ro
       - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/.nuget/fallbackpackages:ro
-      - C:\Users\GeovaneRoque\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
-      - C:\Users\GeovaneRoque\AppData\Roaming\ASP.NET\Https:/home/app/.aspnet/https:ro
-      - C:\Users\GeovaneRoque\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
-      - C:\Users\GeovaneRoque\AppData\Roaming\Microsoft\UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - C:\Users\Geovane\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+      - C:\Users\Geovane\AppData\Roaming\ASP.NET\Https:/home/app/.aspnet/https:ro
+      - C:\Users\Geovane\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+      - C:\Users\Geovane\AppData\Roaming\Microsoft\UserSecrets:/home/app/.microsoft/usersecrets:ro
       - C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net7.0:/VSTools:ro
       - C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\HotReload:/HotReloadAgent:ro
 

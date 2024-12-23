@@ -7,8 +7,9 @@
 <h1>Bem-vindo à sua Razor Page!</h1>
 
 @code{
-    protected override void OnAfterRender(bool firstRender)
+    protected async override Task OnInitializedAsync()
     {
-        NavigationManager.NavigateTo($"/pessoa");
+        base.OnInitialized();
+        NavigationManager.NavigateTo($"/pessoas", true);
     }
 }

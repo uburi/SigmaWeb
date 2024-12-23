@@ -15,8 +15,10 @@ namespace SigmaWeb.Extensions
         {
             services.AddDbContext<BaseContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("SigmaDb"));
+                options.UseSqlServer(configuration.GetConnectionString("SigmaDb"))
+                .EnableSensitiveDataLogging();
             },  ServiceLifetime.Scoped);
+
         }
         public static void AddServices(this IServiceCollection services)
         {

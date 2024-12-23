@@ -22,14 +22,14 @@ namespace Application.Application
 
         }
 
-        public virtual async Task<TReadModelResponse> CreateAsync(TEntity createModel)
+        public virtual async Task<TReadModelResponse> CreateAsync(TReadModelResponse createModel)
         {
             var entidade = _mapper.Map<TEntity>(createModel);
             var entidadeCriada = await _service.CreateAsync(entidade);
             return _mapper.Map<TReadModelResponse>(entidadeCriada);
         }
 
-        public virtual async Task<TReadModelResponse> CreateAsync(TEntity createModel, string input)
+        public virtual async Task<TReadModelResponse> CreateAsync(TReadModelResponse createModel, string input)
         {
             var entidade = _mapper.Map<TEntity>(createModel);
             var entidadeCriada = await _service.CreateAsync(entidade);
@@ -46,7 +46,8 @@ namespace Application.Application
         public virtual async Task<IEnumerable<TReadModelResponse>> GetAllAsync()
         {
             var result = await _service.GetAllAsync();
-            return _mapper.Map<IEnumerable<TReadModelResponse>>(result);
+            var resultFull = _mapper.Map<IEnumerable<TReadModelResponse>>(result);
+            return resultFull;
         }
         public virtual async Task<IEnumerable<TReadModelResponse>> GetRangeAsync(int start, int end)
         {
@@ -59,12 +60,12 @@ namespace Application.Application
             return _mapper.Map<TReadModelResponse>(result);
         }
 
-        public virtual async Task<TReadModelResponse> UpdateAsync(TEntity updateModel)
+        public virtual async Task<TReadModelResponse> UpdateAsync(TReadModelResponse updateModel)
         {
             var entidade = _mapper.Map<TEntity>(updateModel);
             return _mapper.Map<TReadModelResponse>(await _service.UpdateAsync(entidade));
         }
-        public virtual async Task<TReadModelResponse> UpdateAsync(TEntity updateModel, string input)
+        public virtual async Task<TReadModelResponse> UpdateAsync(TReadModelResponse updateModel, string input)
         {
             var entidade = _mapper.Map<TEntity>(updateModel);
             return _mapper.Map<TReadModelResponse>(await _service.UpdateAsync(entidade));

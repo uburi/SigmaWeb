@@ -6,27 +6,17 @@
 @using Microsoft.AspNetCore.SignalR
 @using SigmaWeb.Pages.Extensions
 @using SigmaWeb.Util
+@using Radzen
 
 @inject IPessoaApplication PessoaApplication
 @inject DialogService DialogService
 @inject NotificationService NotificationService
 @inject TooltipService TooltipService
 @inject NavigationManager NavigationManager
+<PageTitle>Consulta de Pessoas - Sigma Web</PageTitle>
+
 
 <div id="lists" class="lists">
-    <div class="lists-all">
-        <TopBody 
-            <BreadcrumbList>
-                <li class="breadcrumb-item"><a href="/">Main</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Pessoa</li>
-            </BreadcrumbList>
-            <ButtonsList>
-                <RadzenButton Icon="add" Text="ADICIONAR" Click="@(OpenAddPessoa)"></RadzenButton>
-                <RadzenButton Icon="autorenew" Text="ATUALIZAR" Click="@(() => Grid.Reload())"></RadzenButton>
-            </ButtonsList>
-        </TopBody>
-    </div>
-
     <div class="data-tables-list ">
         <div class="data table-responsive-sm">
             <div class="row">
@@ -41,7 +31,6 @@
                             <RadzenDataGridColumn TItem="PessoaDto" TextAlign="TextAlign.Center" Filterable="false" Sortable="false" Width="60px">
                                 <Template Context="pessoa">
                                     <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => OpenEditPessoa(pessoa))" MouseEnter="@(args => ShowTooltip("Editar/Visualizar", args) )"></RadzenButton>
-                                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => ConfirmDeletePessoa(pessoa))" MouseEnter="@(args => ShowTooltip("Excluir", args) )"></RadzenButton>
                                 </Template>
                             </RadzenDataGridColumn>
                         </Columns>
@@ -99,26 +88,4 @@
         NavigationManager.NavigateTo($"/pessoa/{pessoaDto.Pessoa_ID}");
     }
 
-    private async Task ConfirmDeletePessoa(PessoaDto batch)
-    {
-
-        var dialog = await DialogService.Confirm("Tem certeza que deseja excluir?", "ATENÇÃO", new ConfirmOptions() { OkButtonText = "SIM", CancelButtonText = "CANCELAR" });
-        if (dialog == true)
-        {
-            await DeletePessoa(batch);
-        }
-
-    }
-    private async Task DeletePessoa(PessoaDto pessoa)
-    {
-        try
-        {
-            PessoaApplication.DeleteAsync(pessoa.Pessoa_ID);
-            await Grid!.Reload();
-        }
-        catch (Exception ex)
-        {
-            MessageScreen.ShowMessage(NotificationService, "Erro", ex.Message, NotificationSeverity.Error);
-        }
-    }
 }

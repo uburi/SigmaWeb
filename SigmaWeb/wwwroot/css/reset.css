@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --samart-link-color: #2FB0DB;
+    --samart-button-color: #2FB0DB;
+    --samart-deep-blue-color: #215273;
+    --samart-text-color: #7C7C7C;
+    --samart-light-text-color: #C6C6C6;
+    --samart-soft-color-background: #F5F5F5;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: var(--samart-soft-color-background);
+}
+
+table, tr, td, th, tbody {
+    border: 0 !important;
+}
+
+
+th {
+    border-bottom: 1px solid #C6C6C6 !important;
+}
+
+tr {
+    border-bottom: 1px solid #C6C6C6 !important;
+}

@@ -1,7 +1,97 @@
-﻿@page "/pessoas/{Id:guid?}"
+﻿@page "/pessoa/{Id:int?}"
+@using Application.DataTransferObjects
+@using Application.Interfaces
+@using Infra.Data.Utils
+@using SigmaWeb.Util
 
-<h3>PessoaEdit</h3>
+@inject NavigationManager NavigationManager
+@inject NotificationService NotificationService
+@inject IPessoaApplication PessoaApplication
+
+<PageTitle>Consulta de Pessoa</PageTitle>
+<div id="lists" class="lists">
+    <div class="lists-all">   
+        <div class="data-tables-list ">
+            <div class="data table-responsive-sm">
+                <EditForm OnValidSubmit="@SavePessoa" Model="@Pessoa" Context="NewPessoa">
+                    <div>
+                        <DataAnnotationsValidator/>                        
+                    </div>
+                    <RadzenStack Gap="5px" Style="margin-top: 20px">
+                        <RadzenRow>
+                            <RadzenColumn Size="6" SizeMD="2" class="input-field">
+                                <RadzenLabel Text="Nome" />
+                                <RadzenTextBox Placeholder="Digite o Nome" Name="Nome_Fantasia" @bind-Value="@Pessoa.Nome_Fantasia" Class="w-100" MaxLength="255" AutoComplete="false" />
+                                <ValidationMessage For="() => Pessoa.Nome_Fantasia" />
+                            </RadzenColumn>
+
+                            <RadzenColumn Size="6" SizeMD="2" class="input-field">
+                                <RadzenLabel Text="CNPJ/CPF" />
+                                <RadzenTextBox Placeholder="Digite o CPF ou CNPJ" Name="CNPJ_CPF" @bind-Value="@Pessoa.CNPJ_CPF" Class="w-100" MaxLength="20" AutoComplete="false" />
+                                <ValidationMessage For="() => Pessoa.CNPJ_CPF" />
+                            </RadzenColumn>
+                        </RadzenRow>
+                        <div class="footer-buttons">
+                            <RadzenButton ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" ButtonType="ButtonType.Button" Icon="arrow_back" Text="VOLTAR" Click="@(() => Back())" />
+                            <RadzenButton ButtonType="ButtonType.Submit" Text="GRAVAR" IsBusy="@IsLoading" BusyText="GRAVAR" />
+                        </div>
+                    </RadzenStack>
+                </EditForm>                                                         
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
+    [Parameter]
+    public int? Id { get; set; }
+    private PessoaDto Pessoa { get; set; } = new PessoaDto();
+    private bool IsLoading { get; set; }
 
+    protected override Task OnInitializedAsync()
+    {
+        if (Id.HasValue)
+        {
+            Pessoa = PessoaApplication.GetByIdAsync(Convert.ToInt32(Id)).Result;
+        }
+
+        return base.OnInitializedAsync();
+    }
+    private async Task SavePessoa()
+    {
+        try
+        {
+            IsLoading = true;
+            StateHasChanged();
+            Pessoa.CNPJ_CPF = new string(Pessoa.CNPJ_CPF.Where(char.IsDigit).ToArray());
+
+
+            if (Id == default)
+            {
+                await PessoaApplication.CreateAsync(Pessoa);
+                MessageScreen.ShowMessage(NotificationService, "Sucesso", "Adição realizada com sucesso", NotificationSeverity.Success);
+            }
+            else
+            {
+                await PessoaApplication.UpdateAsync(Pessoa);
+                MessageScreen.ShowMessage(NotificationService, "Sucesso", "Update realizado com sucesso", NotificationSeverity.Success);
+            }
+
+            Back();
+        }
+        catch (Exception ex)
+        {
+            MessageScreen.ShowMessage(NotificationService, "Erro", ex.Message, NotificationSeverity.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+
+        StateHasChanged();
+    }
+    private void Back()
+    {
+        NavigationManager.NavigateTo("/pessoas");
+    }
 }

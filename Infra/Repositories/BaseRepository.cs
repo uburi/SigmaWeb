@@ -22,8 +22,8 @@ namespace Infra.Data.Repositories
             var query = _DbSet.AsQueryable();
 
             query = query
-                .Skip(start)  // Pula os primeiros 'start' registros
-                .Take(end - start + 1)  // Leva 'end - start + 1' registros
+                .Skip(start)  
+                .Take(end - start + 1)  
                 .AsNoTracking();
 
             return await query.ToListAsync();
@@ -42,9 +42,17 @@ namespace Infra.Data.Repositories
 
         public virtual async Task<TEntity> GetByIdAsync(int id)
         {
-            var entity = await _DbSet.FindAsync(id);
-            _AppDbContext.Entry(entity).State = EntityState.Detached;
-            return entity;
+            try
+            {
+                var entity = await _DbSet.FindAsync(id);
+                _AppDbContext.Entry(entity).State = EntityState.Detached;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)

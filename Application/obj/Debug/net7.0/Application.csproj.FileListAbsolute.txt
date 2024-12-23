@@ -31,3 +31,6 @@ C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\Application\obj\Debug\net7.0\App
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\Application\obj\Debug\net7.0\refint\Application.dll
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\Application\obj\Debug\net7.0\Application.pdb
 C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\Application\obj\Debug\net7.0\ref\Application.dll
+C:\Users\Geovane\Documents\GitHub\SigmaWeb\Application\bin\Debug\net7.0\Infra.Data.dll
+C:\Users\Geovane\Documents\GitHub\SigmaWeb\Application\bin\Debug\net7.0\Infra.Data.pdb
+C:\Users\Geovane\Documents\GitHub\SigmaWeb\Application\obj\Debug\net7.0\Application.sourcelink.json

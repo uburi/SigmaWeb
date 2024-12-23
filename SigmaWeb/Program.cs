@@ -9,8 +9,11 @@ builder.Services.RegisterIoC(builder.Configuration);
 builder.Services.AddServices();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRadzenComponents();
-builder.Services.AddScoped<Radzen.ThemeService>();
-builder.Services.AddScoped<Radzen.DialogService>();
+builder.Services.AddScoped<ThemeService>();
+builder.Services.AddScoped<DialogService>();
+builder.Services.AddScoped<TooltipService>();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<ContextMenuService>();
 builder.Services.AddSignalR(s =>
 {
     s.EnableDetailedErrors = true;

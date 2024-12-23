@@ -8,9 +8,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blazor Server App</title>
+    <title>Sigma Web</title>
     <base href="/" />
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)" render-mode="ServerPrerendered" />
+
     <component type="typeof(RadzenTheme)" render-mode="ServerPrerendered" param-Theme="@("material")" />
 </head>
 <body>
@@ -20,6 +23,5 @@
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>
-<script>
-    <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
-</script>
+<script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
+

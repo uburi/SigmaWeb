@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: SigmaWeb/Dockerfile
+    ports:
+        - "8080:80"
+        - "4343:443"
     depends_on: ["sigma-web-sqlserver"]
     networks:
             sigma-web-network:

@@ -259,7 +259,6 @@ a, .btn-link {
 .data-tables-list {
     width: 100%;
     padding: 0px 16px 50px;
-    margin-top: -20px;
 }
 
 .page-icon {
@@ -1489,7 +1488,6 @@ thead tr th {
 
 
     .data-tables-list {
-        margin-top: -80px;
         padding: 0 24px;
     }
 
