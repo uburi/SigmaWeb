@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Utils;
+using System.Linq.Expressions;
 
 namespace Domain.Interfaces.Service
 {
@@ -14,5 +11,7 @@ namespace Domain.Interfaces.Service
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task<IEnumerable<T>> GetRangeAsync(int start, int end);
+        ReturnTable<TType> GetWithFilterRadzen<TType>(string filter, string order, int? skip, int? take, Expression<Func<T, TType>> select) where TType : class;
+
     }
 }

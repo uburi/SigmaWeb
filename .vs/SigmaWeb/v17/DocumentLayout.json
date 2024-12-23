@@ -1,24 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\pages\\pessoa\\pessoalist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\pages\\pessoa\\pessoalist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\pages\\pessoa\\pessoaedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\pages\\pessoa\\pessoaedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|c:\\users\\geovane\\documents\\github\\sigmaweb\\sigmaweb\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B066F6EC-6C00-46EB-9919-86B57A786A71}|SigmaWeb\\SigmaWeb.csproj|solutionrelative:sigmaweb\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 350,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,58 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Index.razor",
-              "RelativeDocumentMoniker": "SigmaWeb\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Index.razor",
-              "RelativeToolTip": "SigmaWeb\\Pages\\Index.razor",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-23T02:14:18.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Error.cshtml",
-              "RelativeDocumentMoniker": "SigmaWeb\\Pages\\Error.cshtml",
-              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Error.cshtml",
-              "RelativeToolTip": "SigmaWeb\\Pages\\Error.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-23T02:14:17.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PessoaList.razor",
-              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Pessoa\\PessoaList.razor",
-              "RelativeDocumentMoniker": "SigmaWeb\\Pages\\Pessoa\\PessoaList.razor",
-              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Pessoa\\PessoaList.razor",
-              "RelativeToolTip": "SigmaWeb\\Pages\\Pessoa\\PessoaList.razor",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-23T02:10:32.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PessoaEdit.razor",
-              "DocumentMoniker": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Pessoa\\PessoaEdit.razor",
-              "RelativeDocumentMoniker": "SigmaWeb\\Pages\\Pessoa\\PessoaEdit.razor",
-              "ToolTip": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\Pages\\Pessoa\\PessoaEdit.razor",
-              "RelativeToolTip": "SigmaWeb\\Pages\\Pessoa\\PessoaEdit.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-23T02:08:59.491Z",
-              "EditorCaption": ""
             }
           ]
         }

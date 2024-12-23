@@ -1,0 +1,120 @@
+name: dockercompose9264206706973344245
+services:
+  sigma-web-sqlserver:
+    command:
+      - sh
+      - -c
+      - ' chmod +x /scripts/init.sh; /scripts/init.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      ACCEPT_EULA: "1"
+      MSSQL_SA_PASSWORD: Password123
+    image: mcr.microsoft.com/azure-sql-edge
+    networks:
+      sigma-web-network:
+        aliases:
+          - sigma-web-sqlserver
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: sigma-web-mssql-azure-edge
+        target: /var/opt/mssql
+        volume: {}
+      - type: bind
+        source: C:\Users\GeovaneRoque\Documents\Github\SigmaWeb\SQL-Scripts
+        target: /scripts
+        bind:
+          create_host_path: true
+  sigmaweb:
+    build:
+      context: C:\Users\GeovaneRoque\Documents\Github\SigmaWeb
+      dockerfile: SigmaWeb/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Debug
+        LAUNCHING_FROM_VS: "true"
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: SigmaWeb
+    container_name: sigma-web
+    depends_on:
+      sigma-web-sqlserver:
+        condition: service_started
+        required: true
+    entrypoint:
+      - dotnet
+      - --roll-forward
+      - Major
+      - /VSTools/DistrolessHelper/DistrolessHelper.dll
+      - --wait
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: sigmaweb
+    labels:
+      com.microsoft.visual-studio.project-name: SigmaWeb
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /.nuget/packages --additionalProbingPath /.nuget/fallbackpackages  "/app/SigmaWeb.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      sigma-web-network: null
+    ports:
+      - mode: ingress
+        target: 80
+        protocol: tcp
+      - mode: ingress
+        target: 443
+        protocol: tcp
+    tty: true
+    volumes:
+      - type: bind
+        source: C:\Users\GeovaneRoque\AppData\Roaming\Microsoft\UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\GeovaneRoque\AppData\Roaming\ASP.NET\Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\GeovaneRoque\vsdbg\vs2017u5
+        target: /remote_debugger
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\GeovaneRoque\AppData\Roaming\ASP.NET\Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\GeovaneRoque\AppData\Roaming\Microsoft\UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net7.0
+        target: /VSTools
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\HotReload
+        target: /HotReloadAgent
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  sigma-web-network:
+    name: dockercompose9264206706973344245_sigma-web-network
+    driver: bridge
+volumes:
+  sigma-web-mssql-azure-edge:
+    name: dockercompose9264206706973344245_sigma-web-mssql-azure-edge

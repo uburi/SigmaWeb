@@ -1360,7 +1360,9 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Infra.Data": "1.0.0",
+          "Radzen.Blazor": "5.7.1"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -1373,7 +1375,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "AutoMapper": "13.0.1"
+          "AutoMapper": "13.0.1",
+          "Radzen.Blazor": "5.7.1"
         },
         "compile": {
           "bin/placeholder/Domain.dll": {}
@@ -1389,7 +1392,8 @@
           "AutoMapper": "13.0.1",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.20",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
+          "Radzen.Blazor": "5.7.1"
         },
         "compile": {
           "bin/placeholder/Infra.Data.dll": {}
@@ -3807,23 +3811,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Geovane\\.nuget\\packages\\": {},
+    "C:\\Users\\GeovaneRoque\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\SigmaWeb.csproj",
+      "projectUniqueName": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\SigmaWeb\\SigmaWeb.csproj",
       "projectName": "SigmaWeb",
-      "projectPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\SigmaWeb.csproj",
-      "packagesPath": "C:\\Users\\Geovane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\SigmaWeb\\obj\\",
+      "projectPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\SigmaWeb\\SigmaWeb.csproj",
+      "packagesPath": "C:\\Users\\GeovaneRoque\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\SigmaWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Geovane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GeovaneRoque\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3832,18 +3836,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Application\\Application.csproj"
+            "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\Application\\Application.csproj"
             },
-            "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Infra\\Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\Geovane\\Documents\\GitHub\\SigmaWeb\\Infra\\Infra.Data.csproj"
+            "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\Infra\\Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\GeovaneRoque\\Documents\\Github\\SigmaWeb\\Infra\\Infra.Data.csproj"
             }
           }
         }

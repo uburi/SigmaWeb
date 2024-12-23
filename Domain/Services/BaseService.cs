@@ -1,8 +1,10 @@
 ﻿using Domain.Interfaces.Service;
+using Domain.Utils;
 using Infra.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +55,10 @@ namespace Domain.Services
         public virtual async Task<TEntity> UpdateAsync(TEntity obj)
         {
             return await _repository.UpdateAsync(obj);
+        }
+        public ReturnTable<TType> GetWithFilterRadzen<TType>(string filter, string order, int? skip, int? take, Expression<Func<TEntity, TType>> select) where TType : class
+        {
+            return _repository.GetWithFilterRadzen(filter, order, skip, take, select);
         }
     }
 }

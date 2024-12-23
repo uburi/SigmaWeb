@@ -1,26 +1,28 @@
 ﻿@page "/pessoas"
 @using Application.DataTransferObjects
 @using Application.Interfaces
-
+@using System.ComponentModel.DataAnnotations;
+@using System.ComponentModel;
+@using Microsoft.AspNetCore.SignalR
+@using SigmaWeb.Pages.Extensions
+@using SigmaWeb.Util
 
 @inject IPessoaApplication PessoaApplication
-@inject NavigationManager NavigationManager
 @inject DialogService DialogService
+@inject NotificationService NotificationService
 @inject TooltipService TooltipService
+@inject NavigationManager NavigationManager
 
 <div id="lists" class="lists">
     <div class="lists-all">
-        <TopBody Title=@PlastererResource.title
-                 Subtitle=@PlastererResource.sub_title
+        <TopBody 
             <BreadcrumbList>
-                <li class="breadcrumb-item"><a href="/">@MainL</a></li>
-                <li class="breadcrumb-item active" aria-current="page">@Pessoa</li>
+                <li class="breadcrumb-item"><a href="/">Main</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pessoa</li>
             </BreadcrumbList>
             <ButtonsList>
-                <AuthorizeView Policy="Plasterer-create">
-                    <RadzenButton Icon="add" Text="@ADICIONAR" Click="@(OpenAddPessoa)"></RadzenButton>
-                </AuthorizeView>
-                <RadzenButton Icon="autorenew" Text="@ATUALIZAR" Click="@(() => Reload())"></RadzenButton>
+                <RadzenButton Icon="add" Text="ADICIONAR" Click="@(OpenAddPessoa)"></RadzenButton>
+                <RadzenButton Icon="autorenew" Text="ATUALIZAR" Click="@(() => Grid.Reload())"></RadzenButton>
             </ButtonsList>
         </TopBody>
     </div>
@@ -30,32 +32,16 @@
             <div class="row">
                 <div class="col-12">
                     <RadzenDataGridApp @ref="Grid" IsLoading=@IsLoading Count="@Count" Data="@pessoaList" LoadData="@LoadData"
-                                       PageSizeOptions="@_pageSizeOptions" PageSizeChanged="@(() => Grid.Reload())" PageSize="_pageSizeOptions.First()" ShowPagingSummary="true"
-                                       AllowSorting="true" AllowFiltering="true" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Center" TItem="PlastererDto" ColumnWidth="200px">
+                    PageSizeOptions="@_pageSizeOptions" PageSizeChanged="@(() => Grid.Reload())" PageSize="_pageSizeOptions.First()" ShowPagingSummary="true"
+                    AllowSorting="true" AllowFiltering="true" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Center" TItem="PessoaDto" ColumnWidth="200px">
                         <Columns>
-                            <RadzenDataGridColumn TItem="PlastererDto" Property="Name" Title="@PlastererResource.name" SortOrder="SortOrder.Ascending"/>
-                            <RadzenDataGridColumn TItem="PlastererDto" Property="Manufacturer.Name" Title="@PlastererResource.manufacturer" />
-                            <RadzenDataGridColumn TItem="PlastererDto" Property="City.Name" Title="@PlastererResource.city" Width="60px" FormatString="{0:d}" />
-                            <RadzenDataGridColumn TItem="PlastererDto" Property="DateRegister" Title="@PlastererResource.register_date" Width="60px" FormatString="{0:d}" />
-                            <RadzenDataGridColumn TItem="PlastererDto" Property="Status" Title="@PlastererResource.status" Width="150px" TextAlign="TextAlign.Center">
-                                <Template Context="data">
-                                    @{
-                                        string buttonClass = data.Status == false ? "canceled" : "";
-                                    }
-                                    <div class="status-button @buttonClass">
-                                        <span>@(data.Status ? "Ativo" : "Inativo")</span>
-                                    </div>
-                                </Template>
-                            </RadzenDataGridColumn>
-                            <RadzenDataGridColumn TItem="PlastererDto" TextAlign="TextAlign.Center" Filterable="false" Sortable="false" Width="60px">
-                                <Template Context="plasterer">
-                                    <RadzenButton Icon="list" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => OpenServiceStations(plasterer))" MouseEnter="@(args => ShowTooltip(PlastererResource.open_plastererstation, args) )"></RadzenButton>
-                                    <AuthorizeView Policy="Plasterer-update">
-                                        <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => OpenEditPlasterer(plasterer))" MouseEnter="@(args => ShowTooltip(PlastererResource.edit, args) )"></RadzenButton>
-                                    </AuthorizeView>
-                                    <AuthorizeView Policy="Plasterer-delete">
-                                        <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => ConfirmDeletePlasterer(plasterer))" MouseEnter="@(args => ShowTooltip(PlastererResource.delete, args) )"></RadzenButton>
-                                    </AuthorizeView>
+                            <RadzenDataGridColumn TItem="PessoaDto" Property="Nome_Fantasia" Title="Nome" SortOrder="SortOrder.Ascending" />
+                            <RadzenDataGridColumn TItem="PessoaDto" Property="CNPJ_CPF" Title="CNPJ/CPF" />
+
+                            <RadzenDataGridColumn TItem="PessoaDto" TextAlign="TextAlign.Center" Filterable="false" Sortable="false" Width="60px">
+                                <Template Context="pessoa">
+                                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => OpenEditPessoa(pessoa))" MouseEnter="@(args => ShowTooltip("Editar/Visualizar", args) )"></RadzenButton>
+                                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Secondary" Variant="Variant.Text" Size="ButtonSize.Medium" Click="@(args => ConfirmDeletePessoa(pessoa))" MouseEnter="@(args => ShowTooltip("Excluir", args) )"></RadzenButton>
                                 </Template>
                             </RadzenDataGridColumn>
                         </Columns>
@@ -68,13 +54,71 @@
 
 @code {
     private readonly IEnumerable<int> _pageSizeOptions = new[] { 10, 20, 30 };
-    private RadzenDataGridApp<PlastererDto>? Grid { get; set; }
+    private RadzenDataGridApp<PessoaDto>? Grid { get; set; }
     private IEnumerable<PessoaDto> pessoaList { get; set; }
     private bool IsLoading { get; set; }
     private int Count { get; set; }
 
+    private void ShowTooltip(string text, ElementReference elementReference, TooltipOptions options = null) => TooltipService.Open(elementReference, text, options);
+
+    private async Task LoadData(LoadDataArgs args)
+    {
+        try
+        {
+            if (IsLoading)
+                return;
+
+            IsLoading = true;
+            StateHasChanged();
+
+            await InvokeAsync(() =>
+            {
+                var result = PessoaApplication.GetListPlastererWithFilterRadzen(args);
+                Count = result.TotalRegister;
+                pessoaList = result.List;
+            });
+        }
+        catch
+        {
+            MessageScreen.ShowMessage(NotificationService, "Erro ao carregar dados", "Erro no carregamento dos dados", NotificationSeverity.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private void OpenAddPessoa()
+    {
+        NavigationManager.NavigateTo($"/pessoa");
+    }
+
     private void OpenEditPessoa(PessoaDto pessoaDto)
     {
-        NavigationManager.NavigateTo($"/pessoa/{plasterer.Id}");
+        NavigationManager.NavigateTo($"/pessoa/{pessoaDto.Pessoa_ID}");
+    }
+
+    private async Task ConfirmDeletePessoa(PessoaDto batch)
+    {
+
+        var dialog = await DialogService.Confirm("Tem certeza que deseja excluir?", "ATENÇÃO", new ConfirmOptions() { OkButtonText = "SIM", CancelButtonText = "CANCELAR" });
+        if (dialog == true)
+        {
+            await DeletePessoa(batch);
+        }
+
+    }
+    private async Task DeletePessoa(PessoaDto pessoa)
+    {
+        try
+        {
+            PessoaApplication.DeleteAsync(pessoa.Pessoa_ID);
+            await Grid!.Reload();
+        }
+        catch (Exception ex)
+        {
+            MessageScreen.ShowMessage(NotificationService, "Erro", ex.Message, NotificationSeverity.Error);
+        }
     }
 }

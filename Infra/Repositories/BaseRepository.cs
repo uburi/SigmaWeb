@@ -1,7 +1,9 @@
-﻿using Infra.Data.Context;
+﻿using Domain.Utils;
+using Infra.Data.Context;
 using Infra.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Linq.Dynamic.Core;
 
 namespace Infra.Data.Repositories
 {
@@ -92,5 +94,31 @@ namespace Infra.Data.Repositories
             }
         }
 
+        public ReturnTable<TType> GetWithFilterRadzen<TType>(string filter, string order, int? skip, int? take, Expression<Func<TEntity, TType>> select) where TType : class
+        {
+            var response = new ReturnTable<TType>();
+
+            var query = from obj in _DbSet select obj;
+
+            response.TotalRegister = query.Count();
+
+            if (!string.IsNullOrEmpty(filter))
+                query = query.Where(filter);
+
+            if (!string.IsNullOrEmpty(order))
+                query = query.OrderBy(order);
+
+            if (skip.HasValue)
+                query = query.Skip(skip.Value);
+
+            if (take.HasValue)
+                query = query.Take(take.Value);
+
+            response.List = query.AsNoTracking().Select(select).ToList();
+
+            response.TotalRegisterFilter = query.Count();
+
+            return response;
+        }
     }
 }
