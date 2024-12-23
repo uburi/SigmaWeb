@@ -1,0 +1,32 @@
+services:
+  sigmaweb:
+    container_name: sigma-web
+    image: ${DOCKER_REGISTRY-}sigmaweb
+    build:
+      context: .
+      dockerfile: SigmaWeb/Dockerfile
+    depends_on: ["sigma-web-sqlserver"]
+    networks:
+            sigma-web-network:
+
+  sigma-web-sqlserver:
+        image: "mcr.microsoft.com/azure-sql-edge"
+        ports:
+            - "1433:1433"
+        environment:
+            - "ACCEPT_EULA=1"
+            - "MSSQL_SA_PASSWORD=Password123"
+        volumes:
+            - "sigma-web-mssql-azure-edge:/var/opt/mssql"
+            -  "./SQL-Scripts:/scripts"
+        command: sh -c ' chmod +x /scripts/init.sh; /scripts/init.sh & /opt/mssql/bin/sqlservr;'
+        networks:
+            sigma-web-network:
+                aliases:
+                    - sigma-web-sqlserver
+
+volumes:
+    sigma-web-mssql-azure-edge:
+networks:
+    sigma-web-network:
+        driver: bridge

@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+@using Microsoft.AspNetCore.Http.Connections;
+@using System.Net;
+
+@inherits LayoutComponentBase
+
+<PageTitle>Sigma Teste</PageTitle>
+
+<RadzenLayout style="height: 100vh; grid-template-areas: 'rz-header rz-header rz-header' 'rz-sidebar rz-body rz-right-sidebar'">
+    <RadzenHeader Style="height: var(--header-height);">
+        <RadzenStack Style="height: var(--header-height);" Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <AuthorizeView>
+                <Authorized>
+                    <RadzenSidebarToggle class="sidebar-toggler" Click="@(() => sidebarMenuExpanded = !sidebarMenuExpanded)" />
+                    <LoginDisplay OpenCloseRightSideBar=@OpenCloseRightSideBar />
+                </Authorized>
+                <NotAuthorized>
+                    <LoginDisplay ExtraPadding=true />
+                    @*<div class="whatsaap-button">
+                    <img src="/images/icone-whatsapp.png" alt="icone do whatsapp">
+                    </div>*@
+                </NotAuthorized>
+            </AuthorizeView>
+        </RadzenStack>
+    </RadzenHeader>
+
+    <AuthorizeView>
+        <Authorized>
+            <RadzenSidebar Style="border: none;" @bind-Expanded="sidebarMenuExpanded">
+                <NavMenu />
+            </RadzenSidebar>
+        </Authorized>
+    </AuthorizeView>
+
+    <CascadingValue Value="this">
+        <RadzenBody class="p-0">
+            <main>
+                <div class="container-internal-page pl-0 pr-0">
+                    <article>
+                        @Body
+                    </article>
+                </div>
+            </main>
+        </RadzenBody>
+    </CascadingValue>
+
+</RadzenLayout>
+
+
+            
+@code {
+    private bool sidebarMenuExpanded = true;
+    private bool sidebarRightExpanded = false;
+
+    private async Task OpenCloseRightSideBar()
+    {
+        sidebarRightExpanded = !sidebarRightExpanded;
+
+        StateHasChanged();
+    }
+
+}

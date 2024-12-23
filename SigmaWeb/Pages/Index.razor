@@ -1,0 +1,14 @@
+﻿@page "/"
+@using Application.Interfaces
+
+@inject NavigationManager NavigationManager
+@inject IPessoaApplication PessoaApplication
+
+<h1>Bem-vindo à sua Razor Page!</h1>
+
+@code{
+    protected override void OnAfterRender(bool firstRender)
+    {
+        NavigationManager.NavigateTo($"/pessoa");
+    }
+}
