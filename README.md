@@ -3,6 +3,9 @@
 Este projeto tem como objetivo gerenciar e analisar dados do objeto/entidade Pessoa, com foco na performance, escalabilidade e boa arquitetura de software. 
 O projeto se deu como um desafio proposto pela Vite Multisoftware/Sigma.
 
+# Como iniciar o projeto?
+O sistema conta com containerização, logo se faz necessário apenas subir para o docker com docker-compose.
+
 # Princípios SOLID no Projeto
 S - Single Responsibility Principle (Princípio da Responsabilidade Única)
 Cada classe tem uma única responsabilidade, facilitando a manutenção e entendimento do código. Por exemplo, temos uma classe Utilitiess separada para a administração de validações
@@ -29,3 +32,5 @@ A ideia foi um layout clean apenas para demonstrar as funcionalidades com foco n
 
 # Testes 
 O sistema foi projeto para suportar diferentes tipos de testes.
+
+
